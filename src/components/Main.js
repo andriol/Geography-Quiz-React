@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { shuffleArray } from "../utils/utils";
 import QuestionCard from "./QuestionCard";
 import { v4 as uuidv4 } from "uuid";
+import "./Main.css";
 
 const Main = () => {
   const [data, setData] = useState([]);
@@ -16,6 +17,13 @@ const Main = () => {
     fetchData();
   }, []);
   console.log(data);
+  const checkAnswer = (e) => {
+    const value = e.target.value;
+    const correctAnswer = data.map((answer) => answer.correct_answer === value);
+
+    return correctAnswer;
+  };
+
   const displayQuestions = data.map((question, index) => {
     const response = {
       ...question,
@@ -24,13 +32,22 @@ const Main = () => {
         question.correct_answer,
       ]),
     };
-    return <QuestionCard key={uuidv4()} response={response} />;
+
+    return (
+      <QuestionCard
+        key={uuidv4()}
+        checkAnswer={checkAnswer}
+        response={response}
+        index={index}
+      />
+    );
   });
+
   return (
-    <>
+    <div className="main__container">
       <h1>Geography Quiz</h1>
       {displayQuestions}
-    </>
+    </div>
   );
 };
 export default Main;

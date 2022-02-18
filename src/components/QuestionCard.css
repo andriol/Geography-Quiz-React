@@ -1,0 +1,14 @@
+.input__card {
+  width: 50%;
+  border: 1px solid lightgray;
+  padding: 1rem;
+  margin: 6px;
+}
+.input__radio-text {
+  display: flex;
+  margin: 0.5rem 0;
+  justify-content: flex-start;
+}
+.input__radio-answer {
+  padding-left: 0.5rem;
+}
