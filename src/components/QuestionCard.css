@@ -12,3 +12,9 @@
 .input__radio-answer {
   padding-left: 0.5rem;
 }
+.true {
+  background-color: #59e391;
+}
+.false {
+  background-color: #ffffff;
+}

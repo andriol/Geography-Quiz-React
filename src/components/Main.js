@@ -16,13 +16,6 @@ const Main = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(data);
-  const checkAnswer = (e) => {
-    const value = e.target.value;
-    const correctAnswer = data.map((answer) => answer.correct_answer === value);
-
-    return correctAnswer;
-  };
 
   const displayQuestions = data.map((question, index) => {
     const response = {
@@ -33,19 +26,13 @@ const Main = () => {
       ]),
     };
 
-    return (
-      <QuestionCard
-        key={uuidv4()}
-        checkAnswer={checkAnswer}
-        response={response}
-        index={index}
-      />
-    );
+    return <QuestionCard key={uuidv4()} response={response} index={index} />;
   });
 
   return (
     <div className="main__container">
       <h1>Geography Quiz</h1>
+
       {displayQuestions}
     </div>
   );
