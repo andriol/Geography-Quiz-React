@@ -10,11 +10,11 @@
   justify-content: flex-start;
 }
 .input__radio-answer {
-  padding-left: 0.5rem;
+  padding-left: 1rem;
 }
 .true {
   background-color: #59e391;
 }
 .false {
-  background-color: #ffffff;
+  background-color: #b53737;
 }
